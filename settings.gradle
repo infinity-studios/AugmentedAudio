@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "AugmentedAudio"
+include ':app'
+
+// libpd engine, vendored in-tree (no submodule needed)
+include ':pd-core'
+project(':pd-core').projectDir = new File(rootDir, 'pd-core')

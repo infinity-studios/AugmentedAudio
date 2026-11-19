@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Augmented Audio</string>
+    <string name="running">Running — make some noise and tilt the phone</string>
+    <string name="no_mic">Microphone permission is required</string>
+</resources>

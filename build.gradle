@@ -1,0 +1,16 @@
+// Top-level build file
+plugins {
+    id 'com.android.application' version '8.2.2' apply false
+    id 'com.android.library' version '8.2.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+}
+
+// Properties the vendored pd-core module reads from the root project
+group = 'org.puredata'
+version = '1.0'
+ext {
+    compileSdk = 34
+    minSdk = 23
+    ndkVersion = '26.1.10909125'
+    androidxLegacySupportVersion = '1.0.0'
+}

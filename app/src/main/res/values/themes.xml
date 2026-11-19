@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.AugmentedAudio" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">#5DCAA5</item>
+        <item name="colorPrimaryDark">#0F6E56</item>
+        <item name="android:windowBackground">#101314</item>
+    </style>
+</resources>
