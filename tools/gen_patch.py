@@ -32,8 +32,8 @@ o("tSum", "+~"); o("tMono", "*~ 0.5"); c("tLs","tSum"); c("tRs","tSum",0,1); c("
 o("dryL", "*~ 0.35"); o("dryR", "*~ 0.35"); c("tLs","dryL"); c("tRs","dryR")
 
 # ---------- ONE shared long echo bus: room + song flow into the same tail ----------
-o("tSend", "*~ 0.6"); c("tMono","tSend")
-o("busA", "+~"); c("micIn","busA"); c("tSend","busA",0,1)
+# echo line carries ROOM only; the song blends via reverb (no discrete delayed copy)
+o("busA", "+~"); c("micIn","busA")
 o("busB", "+~"); c("busA","busB")
 o("dw", "delwrite~ md 5000"); c("busB","dw")
 o("lfoL", "osc~ 0.03"); o("lfoLs", "*~ 200"); o("tmL", "+~ 650"); o("tapL", "vd~ md")
@@ -46,7 +46,7 @@ c("tapSum","fbHalf"); c("fbHalf","fbG"); c("fbSig","fbG",0,1); c("fbG","fbLp"); 
 c("fbHp","busB",0,1)
 
 # ---------- reverb: room + song + the echoes all wash into the song's space ----------
-o("micRev", "*~ 0.6"); o("tRev", "*~ 0.6"); o("tapRev", "*~ 0.45")
+o("micRev", "*~ 0.6"); o("tRev", "*~ 0.45"); o("tapRev", "*~ 0.45")
 c("micIn","micRev"); c("tMono","tRev"); c("tapSum","tapRev")
 o("revA", "+~"); o("revB", "+~"); c("micRev","revA"); c("tRev","revA",0,1)
 c("revA","revB"); c("tapRev","revB",0,1)
@@ -71,7 +71,14 @@ o("dac", "dac~ 1 2"); c("clpL","dac",0,0); c("clpR","dac",0,1)
 # ---------- startup ----------
 o("lb", "loadbang"); o("dsp", r"\; pd dsp 1", "msg"); o("dl", "del 300")
 o("open", "open ./mytrack.wav \\, 1", "msg")
-c("lb","dsp"); c("lb","dl"); c("dl","open"); c("open","rsf"); c("rsf","open",2,0)
+o("openImp", "open ./imported.wav \\, 1", "msg")
+o("curF", "f"); o("selImp", "sel 1")
+o("rUse", "r useimport"); o("rReopen", "r reopen")
+c("rUse","curF",0,1); c("rReopen","curF")
+c("curF","selImp"); c("selImp","openImp",0,0); c("selImp","open",1,0)
+c("open","rsf"); c("openImp","rsf")
+c("rsf","curF",2,0)   # end of file -> loop whichever song is current
+c("lb","dsp"); c("lb","dl"); c("dl","curF")
 for nm, val, dest in (("d1","1","source"),("d2","0.7","drown"),("d3","0.75","songlvl"),("d4","0.7","roomlvl")):
     o(nm, val, "msg"); o(nm+"s", "s "+dest); c("lb",nm); c(nm,nm+"s")
 c("lb","shimMsg")
