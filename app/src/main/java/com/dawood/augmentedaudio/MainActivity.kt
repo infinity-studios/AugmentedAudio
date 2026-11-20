@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
             PdAudio.startAudio(this)
             started = true
-            selectSource(0)   // default to microphone (ambient) mode
+            selectSource(1)   // default to music mode (song + live room woven in)
         } catch (e: Exception) {
             Log.e(tag, "start failed", e)
             status.text = "Error: ${e.message}"
