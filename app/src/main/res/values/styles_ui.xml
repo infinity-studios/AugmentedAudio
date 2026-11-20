@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SliderLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#CCFFFFFF</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="DreamSlider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:max">100</item>
+        <item name="android:progressTint">#7BE0C8</item>
+        <item name="android:thumbTint">#FFFFFF</item>
+        <item name="android:progressBackgroundTint">#40FFFFFF</item>
+    </style>
+</resources>

@@ -2,6 +2,8 @@
     <style name="Theme.AugmentedAudio" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">#5DCAA5</item>
         <item name="colorPrimaryDark">#0F6E56</item>
-        <item name="android:windowBackground">#101314</item>
+        <item name="android:windowBackground">#0A0F1F</item>
+        <item name="android:statusBarColor">#0A0F1F</item>
+        <item name="android:navigationBarColor">#1E0F33</item>
     </style>
 </resources>

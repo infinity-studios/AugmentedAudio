@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Augmented Audio</string>
-    <string name="hint">Headphones recommended</string>
-    <string name="mode_mic">Mode: Microphone — dreamifying the room</string>
-    <string name="mode_music">Mode: Local music</string>
-    <string name="btn_mic">Microphone (ambient)</string>
-    <string name="btn_music">Local music</string>
+    <string name="hint">Headphones on · let the room drown in</string>
+    <string name="mode_mic">Ambient\nthe room is the song</string>
+    <string name="mode_music">Music\nroom flows into the song</string>
+    <string name="btn_mic">Ambient</string>
+    <string name="btn_music">Music</string>
     <string name="no_mic">Microphone permission is required</string>
 </resources>
