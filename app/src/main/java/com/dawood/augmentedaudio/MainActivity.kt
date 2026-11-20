@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun startEngine() {
         try {
-            // 44.1kHz, 1 mic in, 2 out
-            PdAudio.initAudio(44100, 1, 2, 8, true)
+            // 44.1kHz, 1 mic in, 2 out, small buffer for near-live latency
+            PdAudio.initAudio(44100, 1, 2, 4, true)
 
             // Extract the bundled patch + rjlib + track to the app's files dir
             val patchDir = File(filesDir, "patch")
